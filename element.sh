@@ -18,20 +18,8 @@ if [[ -z $ELEMENTS_PROPERTIES_TYPES ]]
 then
   echo "I could not find that element in the database."
 else
-  echo "$ELEMENTS_PROPERTIES_TYPES" | while read ATOMIC_NUMBER SYMBOL NAME TYPE ATOMIC_MASS MELTING_POINT_CELSIUS BOILING_POINT_CELSIUS
+  echo "$ELEMENTS_PROPERTIES_TYPES" | while IFS=\| read ATOMIC_NUMBER SYMBOL NAME TYPE ATOMIC_MASS MELTING_POINT_CELSIUS BOILING_POINT_CELSIUS
   do
-    
-    echo "The element with atomic number $ATOMIC_NUMBER is $NAME ($SYMBOL). It's a $TYPE, with a mass of $ATOMIC_MASS amu. $NAME has a melting point of $MELTING_POINT_C celsius and a boiling point of $BOILING_POINT_C celsius."
+    echo "The element with atomic number $ATOMIC_NUMBER is $NAME ($SYMBOL). It's a $TYPE, with a mass of $ATOMIC_MASS amu. $NAME has a melting point of $MELTING_POINT_CELSIUS celsius and a boiling point of $BOILING_POINT_CELSIUS celsius."
   done
 fi
-
-
-  
-
-#if [[ $1 == 1 ]] || [[ $1 == "H" ]] || [[ $1 == "Hydrogen" ]]
-#then
-#  echo "The element with atomic number 1 is Hydrogen (H). It's a nonmetal, with a mass of 1.008 amu. Hydrogen has a melting point of -259.1 celsius and a boiling point of -252.9 celsius."
-#fi
-
-
-
